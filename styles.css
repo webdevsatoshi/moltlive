@@ -1,0 +1,255 @@
+/* CSS Variables */
+:root {
+    --bg-primary: #0a0a0a;
+    --bg-secondary: #111111;
+    --text-primary: #ffffff;
+    --text-secondary: #888888;
+    --accent: #EA3A29;
+    --live-red: #ff0000;
+    --font-main: 'Reddit Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+/* Reset & Base */
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    font-size: 16px;
+}
+
+body {
+    font-family: var(--font-main);
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    line-height: 1.6;
+    min-height: 100vh;
+}
+
+/* Container */
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 2rem 1.5rem;
+}
+
+/* Header */
+.header {
+    margin-bottom: 3rem;
+}
+
+.header-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.5rem;
+}
+
+.logo {
+    font-size: 2.5rem;
+    font-weight: 800;
+    letter-spacing: 0.02em;
+    color: var(--text-primary);
+}
+
+.live-indicator {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.live-dot {
+    width: 10px;
+    height: 10px;
+    background-color: var(--live-red);
+    border-radius: 50%;
+    animation: pulse 1.5s ease-in-out infinite;
+    box-shadow: 0 0 10px var(--live-red);
+}
+
+@keyframes pulse {
+    0%, 100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+    50% {
+        opacity: 0.5;
+        transform: scale(0.9);
+    }
+}
+
+.live-text {
+    font-size: 0.875rem;
+    font-weight: 700;
+    color: var(--live-red);
+    letter-spacing: 0.1em;
+}
+
+.tagline {
+    font-size: 1rem;
+    color: var(--text-secondary);
+}
+
+/* Stream Section */
+.stream-section {
+    margin-bottom: 3rem;
+}
+
+.stream-container {
+    position: relative;
+    width: 100%;
+    padding-bottom: 56.25%; /* 16:9 aspect ratio */
+    background-color: var(--bg-secondary);
+    border: 1px solid #222;
+    overflow: hidden;
+}
+
+.stream-container iframe,
+.stream-container video,
+.stream-placeholder {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.stream-container video {
+    background-color: #000;
+    object-fit: contain;
+}
+
+.stream-placeholder {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: var(--text-secondary);
+}
+
+.stream-placeholder p {
+    font-size: 1rem;
+}
+
+.stream-placeholder .placeholder-hint {
+    font-size: 0.75rem;
+    margin-top: 0.5rem;
+    opacity: 0.5;
+}
+
+/* Description Section */
+.description-section {
+    margin-bottom: 3rem;
+}
+
+.section-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--accent);
+    letter-spacing: 0.1em;
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid #222;
+}
+
+.description-content p {
+    margin-bottom: 1rem;
+    color: var(--text-secondary);
+}
+
+.description-content a {
+    color: var(--accent);
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    transition: border-color 0.2s ease;
+}
+
+.description-content a:hover {
+    border-bottom-color: var(--accent);
+}
+
+.description-final {
+    color: var(--text-primary) !important;
+    margin-top: 1.5rem;
+}
+
+/* Links Section */
+.links-section {
+    margin-bottom: 3rem;
+    text-align: center;
+}
+
+.links-row {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+    flex-wrap: wrap;
+}
+
+.link-btn {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    font-family: var(--font-main);
+    font-size: 0.875rem;
+    color: var(--text-primary);
+    background-color: transparent;
+    border: 1px solid #333;
+    text-decoration: none;
+    transition: all 0.2s ease;
+}
+
+.link-btn:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+    box-shadow: 0 0 10px rgba(255, 69, 0, 0.2);
+}
+
+.ticker {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--accent);
+    letter-spacing: 0.05em;
+}
+
+/* Footer */
+.footer {
+    text-align: center;
+    padding-top: 2rem;
+    border-top: 1px solid #222;
+}
+
+.footer p {
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+    .container {
+        padding: 1.5rem 1rem;
+    }
+
+    .logo {
+        font-size: 1.75rem;
+    }
+
+    .tagline {
+        font-size: 0.875rem;
+    }
+
+    .section-title {
+        font-size: 1rem;
+    }
+
+    .description-content p {
+        font-size: 0.9375rem;
+    }
+
+    .link-btn {
+        padding: 0.625rem 1.25rem;
+        font-size: 0.8125rem;
+    }
+}
