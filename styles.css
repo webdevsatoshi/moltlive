@@ -106,37 +106,47 @@ body {
     overflow: hidden;
 }
 
-.stream-container iframe,
-.stream-container video,
-.stream-placeholder {
+.stream-preview {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
+    object-fit: cover;
+    filter: blur(3px);
 }
 
-.stream-container video {
-    background-color: #000;
-    object-fit: contain;
+.stream-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+    z-index: 5;
 }
 
-.stream-placeholder {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    color: var(--text-secondary);
+.cta-button {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 1rem 2rem;
+    font-family: var(--font-main);
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #fff;
+    background-color: var(--accent);
+    border: none;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    z-index: 10;
 }
 
-.stream-placeholder p {
-    font-size: 1rem;
-}
-
-.stream-placeholder .placeholder-hint {
-    font-size: 0.75rem;
-    margin-top: 0.5rem;
-    opacity: 0.5;
+.cta-button:hover {
+    background-color: #c9301f;
+    transform: translate(-50%, -50%) scale(1.05);
 }
 
 /* Description Section */
